@@ -18,6 +18,7 @@ public class OrderServiceTest {
     public void beforeEach(){
         AppConfig appConfig = new AppConfig();
         memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
     }
 
     @Test
@@ -25,6 +26,8 @@ public class OrderServiceTest {
         Long memberId = 1L;
         Member member = new Member(memberId, "a", Grade.VIP);
         memberService.join(member);
+
+
 
         Order order = orderService.CreateOrder(memberId, "itemA", 100000);
 

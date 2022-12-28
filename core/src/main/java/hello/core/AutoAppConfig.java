@@ -9,14 +9,15 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-        basePackages =  "hello.core.member",
+        basePackages = "hello.core.member",
         // 예제 유지 위해서 제외시킴
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
-    @Bean(name= "memoryMemberRepository")
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+    // 해당 클래스는 자동 등록이 되어있기 때문에, 주석 처리한 부분처럼 수동 추가하면 중복 등록 에러가 발생한다.
+//    @Bean(name= "memoryMemberRepository")
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 
 }
